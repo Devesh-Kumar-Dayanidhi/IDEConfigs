@@ -76,7 +76,7 @@ augroup asm_no_treesitter
 augroup END
 
 " =========================
-" JDH-style C/C++ Gruvbox
+" Custom C/C++ Gruvbox
 " =========================
 
 " Variables
