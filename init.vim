@@ -31,7 +31,7 @@ let g:gruvbox_italic = 0
 let g:gruvbox_bold = 1
 
 let g:gruvbox_material_background = 'hard'
-let g:gruvbox_material_foreground = 'material'
+let g:gruvbox_material_foreground = 'original'
 let g:gruvbox_material_enable_italic = 0
 let g:gruvbox_material_enable_bold = 1
 
@@ -76,7 +76,7 @@ augroup asm_no_treesitter
 augroup END
 
 " =========================
-" Custom C/C++ Gruvbox
+" JDH-style C/C++ Gruvbox
 " =========================
 
 " Variables
@@ -110,3 +110,37 @@ hi! link @keyword.modifier GruvboxOrange
 " Punctuation
 hi! link @punctuation.bracket GruvboxOrange
 hi! link @punctuation.delimiter GruvboxOrange
+
+if g:colors_name ==# 'gruvbox-material'
+  " Variables
+  hi! link @variable BlueBold
+  hi! link @variable.parameter BlueBold
+  hi! link @field BlueBold
+
+  " Preprocessor / macros
+  hi! link @keyword.directive BlueBold
+  hi! link @constant.macro BlueBold
+  hi! link @function.macro BlueBold
+  hi! link @keyword.import BlueBold
+
+  " Functions
+  hi! link @function GreenBold
+  hi! link @function.call GreenBold
+  hi! link @method GreenBold
+
+  " Types
+  hi! link @type YellowBold
+  hi! link @type.builtin YellowBold
+  hi! link @constructor YellowBold
+
+  " Keywords
+   hi! link @keyword RedBold
+   hi! link @keyword.type RedBold
+
+  " Storage modifiers
+  hi! link @keyword.modifier OrangeBold
+
+  " Punctuation
+  hi! link @punctuation.bracket OrangeBold
+  hi! link @punctuation.delimiter OrangeBold
+endif
