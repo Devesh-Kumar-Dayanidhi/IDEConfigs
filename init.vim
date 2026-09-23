@@ -150,14 +150,14 @@ nnoremap <C-b> :NvimTreeToggle<CR>
 " ------------------------------------------------------------
 
 nnoremap <C-s> :w<CR>
-inoremap <C-s> <Esc>:w<CR>a
+inoremap <C-s> <Esc>:w<CR>
 
 " ------------------------------------------------------------
 " Quit
 " Ctrl+Q
 " ------------------------------------------------------------
 
-nnoremap <C-q> :q<CR>
+nnoremap <C-q> :q!<CR>
 
 " ------------------------------------------------------------
 " Telescope
@@ -168,6 +168,9 @@ nnoremap <C-p> <cmd>Telescope find_files<CR>
 
 " Ctrl+Shift+F = Search project
 nnoremap <C-S-f> <cmd>Telescope live_grep<CR>
+
+" Ctrl+F = Search Current File
+nnoremap <C-f> <cmd>Telescope current_buffer_fuzzy_find<CR>
 
 " Ctrl+Shift+P = Command palette
 nnoremap <C-S-p> <cmd>Telescope commands<CR>
@@ -217,6 +220,10 @@ vim.api.nvim_create_autocmd("FileType", {
     callback = function()
         pcall(vim.treesitter.start)
     end,
+})
+
+vim.diagnostic.config({
+    underline = false,
 })
 
 EOF
