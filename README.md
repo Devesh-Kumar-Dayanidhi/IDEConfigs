@@ -1,14 +1,150 @@
-# IDEConfigs
+## Installation — macOS
 
-Some pretty decent and basic configs.
+This configuration is intended for macOS.
 
-How to Install:<br>
-Use NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" if running a passwordless sudo, if not use the command on the following line.<br>
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"<br>
-brew install neovim<br>
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'<br>
-nvim, then run :PlugInstall inside nvim<br>
-sudo apt install gcc g++ make tree-sitter-cli<br>
-If you are using an rpm based distro use the command on the next line instead of the command on the previous line<br>
-sudo dnf install gcc gcc-c++ make tree-sitter-cli<br>
-nvim, then run :TSInstall c cpp asm { all desired language parses }<br>
+### 1. Install Xcode Command Line Tools
+
+macOS provides the core development tools required by Neovim and C/C++ development.
+
+```bash
+xcode-select --install
+```
+
+If the tools are already installed, macOS will notify you.
+
+---
+
+### 2. Install Homebrew
+
+If Homebrew is not already installed, install it from:
+
+https://brew.sh/
+
+Then update Homebrew:
+
+```bash
+brew update
+```
+
+---
+
+### 3. Install Dependencies
+
+Install the tools used by this configuration:
+
+```bash
+brew install neovim ripgrep fd tree-sitter-cli
+```
+
+If you use CMake projects:
+
+```bash
+brew install cmake
+```
+
+#### Dependencies
+
+| Package           | Purpose                                 |
+| ----------------- | --------------------------------------- |
+| `neovim`          | Neovim editor                           |
+| `ripgrep`         | Fast project-wide search                |
+| `fd`              | Fast file searching                     |
+| `tree-sitter-cli` | Tree-sitter CLI used by nvim-treesitter |
+| `cmake`           | CMake project support, if needed        |
+
+---
+
+### 4. Install vim-plug
+
+This configuration uses vim-plug as its plugin manager.
+
+```bash
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim \
+  --create-dirs \
+  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+```
+
+---
+
+### 5. Install Neovim Plugins
+
+Start Neovim:
+
+```bash
+nvim
+```
+
+Then run:
+
+```vim
+:PlugInstall
+```
+
+Restart Neovim after the plugins finish installing.
+
+---
+
+### 6. Install Tree-sitter Parsers
+
+Inside Neovim:
+
+```vim
+:TSInstall c cpp asm lua bash json yaml cmake make
+```
+
+---
+
+### 7. Install Language Servers
+
+Open Mason:
+
+```vim
+:Mason
+```
+
+Install the language servers you need, if they are not already installed, such as:
+
+```text
+clangd
+lua_ls
+bashls
+jsonls
+yamlls
+cmake
+```
+
+---
+
+## Quick Install
+
+For a fresh macOS setup:
+
+```bash
+xcode-select --install
+
+brew install neovim ripgrep fd tree-sitter-cli
+
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim \
+  --create-dirs \
+  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+```
+
+For CMake projects:
+
+```bash
+brew install cmake
+```
+
+Then launch Neovim:
+
+```bash
+nvim
+```
+
+Run:
+
+```vim
+:PlugInstall
+:TSInstall all
+:Mason
+```
