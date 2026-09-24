@@ -31,6 +31,7 @@ Plug 'nvim-tree/nvim-web-devicons'
 
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-lua/plenary.nvim'
+Plug 'mg979/vim-visual-multi'
 
 " ------------------------------------------------------------
 " LSP
@@ -80,6 +81,7 @@ set shiftwidth=4
 set tabstop=4
 set softtabstop=4
 set expandtab
+set nowrap
 
 set mouse=a
 
@@ -126,7 +128,6 @@ colorscheme gruvbox
 "
 " colorscheme gruvbox-material
 
-
 " ============================================================
 " Leader Key
 " ============================================================
@@ -136,6 +137,23 @@ let mapleader = " "
 " ============================================================
 " VS Code-like Keybindings
 " ============================================================
+
+" ------------------------------------------------------------
+" Terminal
+" Ctrl+E
+" ------------------------------------------------------------
+
+nnoremap <C-e> <cmd>ToggleTerm<CR>
+tnoremap <C-e> <C-\><C-n><cmd>ToggleTerm<CR>
+
+" ------------------------------------------------------------
+" Duplicates Editor
+" Ctrl+D
+" ------------------------------------------------------------
+
+let g:VM_maps = {}
+let g:VM_maps['Find Under'] = '<C-d>'
+let g:VM_maps['Find Subword Under'] = '<C-d>'
 
 " ------------------------------------------------------------
 " File Explorer
@@ -166,14 +184,14 @@ nnoremap <C-q> :q!<CR>
 " Ctrl+P = Find files
 nnoremap <C-p> <cmd>Telescope find_files<CR>
 
-" Ctrl+Shift+F = Search project
-nnoremap <C-S-f> <cmd>Telescope live_grep<CR>
+" Shift+F = Search project
+nnoremap <S-f> <cmd>Telescope live_grep<CR>
 
 " Ctrl+F = Search Current File
 nnoremap <C-f> <cmd>Telescope current_buffer_fuzzy_find<CR>
 
-" Ctrl+Shift+P = Command palette
-nnoremap <C-S-p> <cmd>Telescope commands<CR>
+" Shift+P = Command palette
+nnoremap <S-p> <cmd>Telescope commands<CR>
 
 " Leader + B = Open buffers
 nnoremap <leader>b <cmd>Telescope buffers<CR>
