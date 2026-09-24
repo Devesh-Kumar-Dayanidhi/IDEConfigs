@@ -54,7 +54,19 @@ brew install cmake
 
 ---
 
-### 4. Install vim-plug
+### 4. Setup config files
+
+This configuration uses vim-plug as its plugin manager.
+
+```bash
+git clone https://github.com/Devesh-Kumar-Dayanidhi/IDEConfigs
+mv ./IDEConfigs/* ~/.config/nvim/
+rm -rf ./IDEConfigs
+```
+
+---
+
+### 5. Install vim-plug
 
 This configuration uses vim-plug as its plugin manager.
 
@@ -66,7 +78,7 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim \
 
 ---
 
-### 5. Install Neovim Plugins
+### 6. Install Neovim Plugins
 
 Start Neovim:
 
@@ -84,7 +96,7 @@ Restart Neovim after the plugins finish installing.
 
 ---
 
-### 6. Install Tree-sitter Parsers
+### 7. Install Tree-sitter Parsers
 
 Inside Neovim:
 
