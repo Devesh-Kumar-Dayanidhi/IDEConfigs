@@ -56,8 +56,6 @@ brew install cmake
 
 ### 4. Setup config files
 
-This configuration uses vim-plug as its plugin manager.
-
 ```bash
 git clone https://github.com/Devesh-Kumar-Dayanidhi/IDEConfigs
 mv ./IDEConfigs/* ~/.config/nvim/
