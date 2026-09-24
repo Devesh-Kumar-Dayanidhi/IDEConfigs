@@ -57,6 +57,8 @@ brew install cmake
 ### 4. Setup config files
 
 ```bash
+mkdir ~/.config
+mkdir ~/.config/nvim
 git clone https://github.com/Devesh-Kumar-Dayanidhi/IDEConfigs
 mv ./IDEConfigs/* ~/.config/nvim/
 rm -rf ./IDEConfigs
